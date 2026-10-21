@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajveer Singh | Portfolio</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        /* Full Width Profile Card (Header) */
+        header.profile-card {
+            width: 100%;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Profile Image styling inside Figure */
+        header figure {
+            margin-bottom: 15px;
+        }
+
+        header img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            background-color: #fff; /* Placeholder background */
+        }
+
+        header figcaption {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-top: 10px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        /* Center Container for Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Content Sections */
+        section {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid #e1e4e8;
+        }
+
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+
+        .project-item {
+            padding: 15px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+        }
+
+        .project-item h3 {
+            color: #222;
+            margin-bottom: 5px;
+        }
+
+        /* Skills Tag Style */
+        .skills-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skills-list li {
+            background: #e7f1ff;
+            color: #007bff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section Styles */
+        .contact-box {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 25px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Full Width Header (Card) -->
+    <header class="profile-card">
+        <figure>
+            <!-- Put your image link in 'src' -->
+            <img src="veer.jpeg" alt="Rajveer Singh">
+            <figcaption>Rajveer Singh</figcaption>
+        </figure>
+        <p class="subtitle">B.Tech CS Student & Backend Developer</p>
+    </header>
+
+    <div class="container">
+        <main>
+            <!-- About Me Section -->
+            <section>
+                <h2>About Me</h2>
+                <p>
+                    I am currently pursuing my <strong>B.Tech in Computer Science</strong>. I am focused on mastering 
+                    <strong>Java</strong> for backend development and am currently learning the <strong>Spring Boot</strong> 
+                    framework. I also dedicate time to solving complex problems through <strong>Data Structures and Algorithms (DSA)</strong>.
+                </p>
+            </section>
+
+            <!-- Projects Section -->
+            <section>
+                <h2>Recent Projects</h2>
+                
+                <article class="project-item">
+                    <h3>Banking System</h3>
+                    <p>A Java-based application for managing banking operations, transactions, and user account security.</p>
+                </article>
+
+                <article class="project-item">
+                    <h3>Personal Portfolio</h3>
+                    <p>A clean, professional portfolio built with semantic HTML5 and CSS to showcase my technical journey.</p>
+                </article>
+            </section>
+
+            <!-- Skills Section -->
+            <section>
+                <h2>Technical Skills</h2>
+                <ul class="skills-list">
+                    <li>Java</li>
+                    <li>Spring Boot (Learning)</li>
+                    <li>DSA</li>
+                    <li>HTML5 & CSS3</li>
+                    <li>Backend Development</li>
+                </ul>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact-box">
+                <h2>Connect With Me</h2>
+                <p>Have a question or want to work together?</p>
+                <a href="mailto:rajveerrajawat414@gmail.com" class="btn">Email Me</a>
+                <a href="https://www.linkedin.com/in/rajveer-singh-0b9576386?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="btn">LinkedIn Profile</a>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Rajveer Singh | Built with Semantic HTML5</p>
+        </footer>
+    </div>
+
+</body>
+</html>
