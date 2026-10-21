@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLA University Timetable</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            margin-bottom: 30px;
+            table-layout: fixed;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 5px;
+            text-align: center;
+            word-wrap: break-word;
+        }
+        .header-main {
+            font-weight: bold;
+            font-size: 14px;
+            background-color: #fff;
+        }
+        .label-cell {
+            font-weight: bold;
+            background-color: #f9f9f9;
+        }
+        /* Color Coding from Image */
+        .green { background-color: #5cf55c; }
+        .beige { background-color: #f5deb3; }
+        .blue { background-color: #00ffff; }
+        .yellow { background-color: #ffff00; }
+        
+        .small-text { font-size: 10px; }
+        .lecture-num { background-color: #fff; font-weight: bold; }
+        
+        caption {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <!-- Main Header Section -->
+        <tr class="header-main">
+            <th colspan="11">GLA UNIVERSITY, MATHURA</th>
+        </tr>
+        <tr class="header-main">
+            <th colspan="11">Institute of Engineering & Technology<br>Computer Engineering & Applications</th>
+        </tr>
+        <tr>
+            <th colspan="4" class="label-cell">Time Table: Odd Semester Programme</th>
+            <th colspan="4" class="label-cell">Course: Bachelor of Technology</th>
+            <th colspan="3" class="label-cell">Session: 2026-2027</th>
+        </tr>
+        <tr>
+            <th colspan="3" class="label-cell">2FB (66)<br>(FULL STACK DEVELOPMENT)<br>Cluster-1</th>
+            <th colspan="1" class="label-cell">Semester: III</th>
+            <th colspan="1" class="label-cell">Class Advisor:</th>
+            <th colspan="3">Ms. Ruby Singh</th>
+            <th colspan="3" class="label-cell">w.e.f. 19/Aug/2026</th>
+        </tr>
+
+        <!-- Lecture Numbers and Times -->
+        <tr class="lecture-num">
+            <td>Lecture #</td>
+            <td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+        </tr>
+        <tr class="label-cell">
+            <td>Day/Time</td>
+            <td>08:00-09:00</td><td>09:00-10:00</td><td>10:00-11:00</td><td>11:00-12:00</td><td>12:00-01:00</td><td>01:00-02:00</td><td>02:00-03:00</td><td>03:00-04:00</td><td>04:00-05:00</td><td>05:00-06:00</td>
+        </tr>
+
+        <!-- Monday -->
+        <tr>
+            <td class="label-cell">Monday</td>
+            <td></td><td></td>
+            <td>BCSE0031<br>ABI-316</td>
+            <td>BMAS0108<br>ABI-316</td>
+            <td></td>
+            <td class="beige">BCSC1006<br>ABVIII-420</td>
+            <td>BELH0020<br>ABVIII-420</td>
+            <td></td><td></td><td></td>
+        </tr>
+
+        <!-- Tuesday -->
+        <tr>
+            <td class="label-cell">Tuesday</td>
+            <td></td><td></td>
+            <td class="green">BCSC1006<br>ABI-210</td>
+            <td class="green">BCSE0031<br>ABI-210</td>
+            <td></td>
+            <td>BELH0020<br>ABVIII-420</td>
+            <td class="green" colspan="2" class="small-text">
+                2FB1/BCSC1802/ABI-217<br>2FB2/BCSC1802/ABV-B218B<br>2FB3/BCSC1802/ABV-B218C
+            </td>
+            <td></td><td></td>
+        </tr>
+
+        <!-- Wednesday -->
+        <tr>
+            <td class="label-cell">Wednesday</td>
+            <td></td><td></td>
+            <td>BCSC1805<br>ABVIII-420</td>
+            <td>BCSC1805<br>ABVIII-420</td>
+            <td></td>
+            <td>BMAS0108<br>ABVIII-420</td>
+            <td class="small-text">
+                2FB1/BELH0020<br>ABVIII-419<hr>
+                2FB2/BELH0020<br>ABVIII-420
+            </td>
+            <td>BCSE0031<br>ABI-316</td>
+            <td>BCSC0009<br>ABI-316</td>
+            <td>BCSC1003<br>ABI-316</td>
+        </tr>
+
+        <!-- Thursday -->
+        <tr>
+            <td class="label-cell">Thursday</td>
+            <td></td><td></td>
+            <td class="small-text">
+                2FB1/BELH0020<br>ABVIII-420<hr>
+                2FB2/BELH0020<br>ABI-316
+            </td>
+            <td>BCSC1003<br>ABVIII-420</td>
+            <td></td>
+            <td class="beige">BCSC1805<br>ABVIII-420</td>
+            <td class="beige">BCSC1805<br>ABVIII-420</td>
+            <td>BMAS0108<br>ABVIII-420</td>
+            <td>BCSC0009<br>ABVIII-420</td>
+            <td class="blue">BEDM0001<br>ABI-401(Dummy)<br>(Online)</td>
+        </tr>
+
+        <!-- Friday -->
+        <tr>
+            <td class="label-cell">Friday</td>
+            <td></td><td></td>
+            <td colspan="2">BCSE0813<br>ABI-212</td>
+            <td></td>
+            <td>BCSC1003<br>ABVIII-420</td>
+            <td>BCSC1006<br>ABVIII-420</td>
+            <td>BMAS0108<br>ABVIII-420</td>
+            <td>BCSC0009<br>ABVIII-420</td>
+            <td class="blue">BEDM0001<br>ABI-401(Dummy)<br>(Online)</td>
+        </tr>
+
+        <!-- Saturday -->
+        <tr>
+            <td class="label-cell">Saturday</td>
+            <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+        </tr>
+    </table>
+
+    <!-- Subject List Table -->
+    <table>
+        <tr class="label-cell">
+            <th width="10%">Code</th>
+            <th width="10%">Category</th>
+            <th width="30%">Subject Name</th>
+            <th width="5%">Credit</th>
+            <th width="10%">L T P</th>
+            <th width="35%">Faculty</th>
+        </tr>
+        <tr>
+            <td>BCSC0009</td><td>PC</td><td>Software Engineering</td><td>3</td><td>3 0 0</td><td>Ms. Ruby Singh(GLA125213)</td>
+        </tr>
+        <tr>
+            <td>BMAS0108</td><td>BS</td><td>Probability and Statistics</td><td>4</td><td>3 1 0</td><td>Dr. Maya Singh(GLA126405)</td>
+        </tr>
+        <tr>
+            <td>BCSC1003</td><td>PC</td><td>Database Management Systems</td><td>3</td><td>3 0 0</td><td>Mr. Amit Kumar(GLA123261)</td>
+        </tr>
+        <tr class="yellow">
+            <td>BCSC1802</td><td>PC</td><td>Database Management Systems Lab</td><td>2</td><td>0 0 4</td><td>Mr. Amit Kumar, Mr. Abhishek Sharma, Dr. Medha Kirti</td>
+        </tr>
+        <tr>
+            <td>BCSC1006</td><td>PC</td><td>Data Structure and Algorithms</td><td>3</td><td>3 0 0</td><td>Ms. Ruchi Gupta(GLA117857)</td>
+        </tr>
+        <tr class="beige">
+            <td>BCSC1805</td><td>PC</td><td>Data Structure and Algorithms Lab</td><td>2</td><td>0 0 4</td><td>Ms. Ruchi Gupta(GLA117857)</td>
+        </tr>
+        <tr>
+            <td>BELH0020</td><td>HS</td><td>English for Professional Purposes</td><td>2</td><td>0 0 4</td><td>Dr. Jyoti Rani, Mr. Abhijeet Satsangi</td>
+        </tr>
+        <tr>
+            <td>BCSE0031</td><td>PE</td><td>Introduction to Frontend Engineering</td><td>3</td><td>3 0 0</td><td>Ms. Meghana M (GLA126242)</td>
+        </tr>
+        <tr class="blue">
+            <td>BEDM0001</td><td>MNG</td><td>Rashtra-Gaurav</td><td>0</td><td>2 0 0</td><td>Dr. Devki Nandan Sharma(GLA120601)</td>
+        </tr>
+        <tr class="label-cell">
+            <td colspan="3" style="text-align: right;">Total</td>
+            <td>25</td>
+            <td colspan="2"></td>
+        </tr>
+    </table>
+
+</body>
+</html>
