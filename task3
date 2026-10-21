@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dark Responsive Website</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #121212;
+            color: #fff;
+        }
+
+
+        header {
+            background: #1e1e1e;
+            text-align: center;
+            padding: 25px;
+            border-bottom: 1px solid #333;
+        }
+
+        header h1 {
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #aaa;
+        }
+
+        .layout {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .sidebar {
+            width: 20%;
+            background: #1e1e1e;
+
+            /* Box Model */
+            margin: 5px;
+            padding: 20px;
+            border: 1px solid #333;
+
+            border-radius: 10px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 15px;
+        }
+
+        .sidebar li {
+            list-style: none;
+            padding: 12px 5px;
+            color: #bbb;
+            border-bottom: 1px solid #333;
+        }
+
+        .main {
+            width: 60%;
+        }
+
+    
+
+        .product-card {
+            background: #1e1e1e;
+
+            /* Box Model */
+            margin: 10px;
+            padding: 25px;
+            border: 2px solid #444;
+
+            text-align: center;
+            border-radius: 12px;
+        }
+
+        .product-card img {
+            width: 200px;
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .product-card h2 {
+            margin: 15px 0 10px;
+        }
+
+        .product-card p {
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 15px;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            background: #fff;
+            color: #111;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #ccc;
+        }
+
+        /* BLOG */
+
+        .blog {
+            padding: 30px 20px;
+        }
+
+        .blog h1 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .blog-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .blog-card {
+            flex: 1;
+
+            background: #1e1e1e;
+            padding: 20px;
+            margin: 5px;
+
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
+
+        .blog-card h2 {
+            margin-bottom: 10px;
+        }
+
+        .blog-card p {
+            color: #aaa;
+            line-height: 1.6;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            .layout {
+                flex-direction: column;
+            }
+
+            .sidebar,
+            .main {
+                width: 100%;
+                margin: 0;
+            }
+
+            .blog-container {
+                flex-direction: column;
+            }
+
+            .blog-card {
+                margin: 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1></h1>
+        <p>Responsive HTML & CSS Layout</p>
+    </header>
+
+
+    <!-- SIDEBARS + PRODUCT -->
+
+    <div class="layout">
+
+        <aside class="sidebar">
+            <h2>Categories</h2>
+
+            <ul>
+                <li>Electronics</li>
+                <li>Clothing</li>
+                <li>Books</li>
+                <li>Accessories</li>
+            </ul>
+        </aside>
+
+
+        <main class="main">
+
+            <div class="product-card">
+
+                <img src="https://via.placeholder.com/200"
+                     alt="Product">
+
+                <h2>Wireless Headphones</h2>
+
+                <p>
+                    High quality wireless headphones
+                    with excellent sound.
+                </p>
+
+                <div class="price">₹1,999</div>
+
+                <button>Buy Now</button>
+
+            </div>
+
+        </main>
+
+
+        <aside class="sidebar">
+            <h2>Quick Links</h2>
+
+            <ul>
+                <li>Home</li>
+                <li>Products</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </aside>
+
+    </div>
+
+
+    <!-- BLOG -->
+
+    <section class="blog">
+
+        <h1>Latest Blogs</h1>
+
+        <div class="blog-container">
+
+            <article class="blog-card">
+                <h2>Learn HTML</h2>
+                <p>
+                    HTML creates the structure
+                    of a webpage.
+                </p>
+            </article>
+
+            <article class="blog-card">
+                <h2>Learn CSS</h2>
+                <p>
+                    CSS makes webpages beautiful
+                    and responsive.
+                </p>
+            </article>
+
+            <article class="blog-card">
+                <h2>Learn Flexbox</h2>
+                <p>
+                    Flexbox helps create flexible
+                    and responsive layouts.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+</body>
+</html>
+```
