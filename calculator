@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculator</title>
+<style>
+  body { background: white; display: flex; justify-content: center; margin-top: 60px; font-family: Arial; }
+  .calc { border: 1px solid #ddd; padding: 15px; border-radius: 12px; }
+  #display { width: 220px; height: 50px; font-size: 24px; text-align: right; margin-bottom: 10px; border: 1px solid #ddd; background: white; }
+  .keys { display: grid; grid-template-columns: repeat(4, 55px); gap: 5px; }
+  button { height: 50px; font-size: 18px; background: white; border: 1px solid #ddd; border-radius: 8px; cursor: pointer; }
+  button:hover { background: #f2f2f2; }
+</style>
+</head>
+<body>
+
+<div class="calc">
+  <input id="display" value="0" readonly>
+  <div class="keys">
+    <button onclick="clearAll()">C</button>
+    <button onclick="setOp('%')">%</button>
+    <button onclick="setOp('/')">/</button>
+    <button onclick="setOp('*')">*</button>
+
+    <button onclick="addNum('7')">7</button>
+    <button onclick="addNum('8')">8</button>
+    <button onclick="addNum('9')">9</button>
+    <button onclick="setOp('-')">-</button>
+
+    <button onclick="addNum('4')">4</button>
+    <button onclick="addNum('5')">5</button>
+    <button onclick="addNum('6')">6</button>
+    <button onclick="setOp('+')">+</button>
+
+    <button onclick="addNum('1')">1</button>
+    <button onclick="addNum('2')">2</button>
+    <button onclick="addNum('3')">3</button>
+    <button onclick="calculate()">=</button>
+
+    <button onclick="addNum('0')">0</button>
+    <button onclick="addNum('.')">.</button>
+  </div>
+</div>
+
+<script>
+  var display = document.getElementById("display");
+  var first = "";
+  var operator = "";
+  var second = "";
+
+  // Shows the full expression, e.g. "12 + 5"
+  function showExpression() {
+    var text = first;
+    if (operator !== "") {
+      text = text + " " + operator + " " + second;
+    }
+    display.value = text === "" ? "0" : text;
+  }
+
+  function addNum(n) {
+    if (operator === "") {
+      first = first + n;
+    } else {
+      second = second + n;
+    }
+    showExpression();
+  }
+
+  function setOp(op) {
+    if (first === "") return;
+    if (second !== "") calculate();   // chain: 2 + 3 + ...
+    operator = op;
+    showExpression();
+  }
+
+  function calculate() {
+    var a = parseFloat(first);
+    var b = parseFloat(second);
+    var result;
+
+    if (operator === "" || second === "") return;
+
+    if (operator === "+") result = a + b;
+    else if (operator === "-") result = a - b;
+    else if (operator === "*") result = a * b;
+    else if (operator === "/") result = a / b;
+    else if (operator === "%") result = a % b;
+
+    first = String(result);
+    operator = "";
+    second = "";
+    display.value = first;
+  }
+
+  function clearAll() {
+    first = "";
+    operator = "";
+    second = "";
+    display.value = "0";
+  }
+</script>
+
+</body>
+</html>
