@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chessboard</title>
+<style>
+  body { font-family: Georgia, serif; text-align: center; margin: 40px 16px; }
+  #board { width: min(100%, 400px); aspect-ratio: 1; margin: 0 auto; border: 3px solid #000; }
+</style>
+</head>
+<body>
+  <h2>Chessboard</h2>
+  <div id="board"></div>
+
+<script>
+const board = document.getElementById('board');
+const SIZE = 8;
+
+// Grid layout applied with JavaScript
+board.style.display = 'grid';
+board.style.gridTemplateColumns = 'repeat(' + SIZE + ', 1fr)';
+board.style.gridTemplateRows = 'repeat(' + SIZE + ', 1fr)';
+
+// Nested loops create the 64 squares
+for (let row = 0; row < SIZE; row++) {
+  for (let col = 0; col < SIZE; col++) {
+    const square = document.createElement('div');
+    const isWhite = (row + col) % 2 === 0;
+    square.style.backgroundColor = isWhite ? 'white' : 'black';
+    board.appendChild(square);
+  }
+}
+</script>
+</body>
+</html>
