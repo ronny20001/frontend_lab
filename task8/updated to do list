@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>To-Do List</title>
+<style>
+  body { font-family: Georgia, serif; max-width: 420px; margin: 40px auto; padding: 0 16px; }
+  .row { display: flex; gap: 8px; }
+  input[type=text] { flex: 1; padding: 8px; }
+  button { cursor: pointer; padding: 6px 10px; }
+  button:disabled { opacity: .35; cursor: default; }
+  ul { list-style: none; padding: 0; margin-top: 14px; }
+  li { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-top: 1px solid #ccc; }
+  li span { flex: 1; }
+  li.done span { text-decoration: line-through; color: #999; }
+</style>
+</head>
+<body>
+  <h2>To-Do List</h2>
+  <div class="row">
+    <input type="text" id="newTask" placeholder="Add a task">
+    <button id="addBtn">Add</button>
+  </div>
+  <ul id="list"></ul>
+  <p id="count"></p>
+
+<script>
+const list  = document.getElementById('list');
+const input = document.getElementById('newTask');
+const count = document.getElementById('count');
+
+function createItem(text) {
+  const li = document.createElement('li');
+
+  const box = document.createElement('input');
+  box.type = 'checkbox';
+  box.addEventListener('change', () => {
+    li.classList.toggle('done', box.checked);
+    updateCount();
+  });
+
+  const label = document.createElement('span');
+  label.textContent = text;
+
+  const up = document.createElement('button');
+  up.textContent = '↑';
+  up.addEventListener('click', () => {
+    const prev = li.previousElementSibling;
+    if (prev) list.insertBefore(li, prev);
+    refreshButtons();
+  });
+
+  const down = document.createElement('button');
+  down.textContent = '↓';
+  down.addEventListener('click', () => {
+    const next = li.nextElementSibling;
+    if (next) list.insertBefore(next, li);
+    refreshButtons();
+  });
+
+  const del = document.createElement('button');
+  del.textContent = '✕';
+  del.addEventListener('click', () => {
+    li.remove();
+    refreshButtons();
+  });
+
+  li.append(box, label, up, down, del);
+  return li;
+}
+
+// Disable ↑ on first item and ↓ on last item
+function refreshButtons() {
+  const items = list.children;
+  for (let i = 0; i < items.length; i++) {
+    const btns = items[i].querySelectorAll('button');
+    btns[0].disabled = (i === 0);
+    btns[1].disabled = (i === items.length - 1);
+  }
+  updateCount();
+}
+
+function updateCount() {
+  const total = list.children.length;
+  const done  = list.querySelectorAll('input:checked').length;
+  count.textContent = total ? done + ' of ' + total + ' done' : 'No tasks yet.';
+}
+
+function addTask() {
+  const text = input.value.trim();
+  if (!text) return;
+  list.appendChild(createItem(text));
+  input.value = '';
+  refreshButtons();
+}
+
+document.getElementById('addBtn').addEventListener('click', addTask);
+input.addEventListener('keydown', e => { if (e.key === 'Enter') addTask(); });
+
+refreshButtons();
+</script>
+</body>
+</html>
