@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>University Finder</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      padding: 40px 16px;
+      margin: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 700px;
+    }
+
+    h1 {
+      color: #1f3a5f;
+      margin-top: 0;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    input {
+      flex: 1;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #aab7c8;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 10px 18px;
+      font-size: 16px;
+      background: #1f3a5f;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2d5287;
+    }
+
+    #message {
+      margin: 16px 0;
+      color: #333;
+    }
+
+    .error {
+      color: #b00020;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #cfd8e3;
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      margin: 0 0 6px 0;
+      color: #1f3a5f;
+      font-size: 17px;
+    }
+
+    .card a {
+      color: #1a6fd1;
+      word-break: break-all;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>University Finder</h1>
+
+    <div class="search-row">
+      <input type="text" id="countryInput" placeholder="Enter a country name, e.g. India">
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <p id="message">Type a country name and click Search.</p>
+
+    <div id="results"></div>
+  </div>
+
+  <script>
+    const countryInput = document.getElementById("countryInput");
+    const searchBtn = document.getElementById("searchBtn");
+    const message = document.getElementById("message");
+    const results = document.getElementById("results");
+
+    function searchUniversities() {
+      const country = countryInput.value.trim();
+
+      if (country === "") {
+        message.className = "error";
+        message.textContent = "Please enter a country name.";
+        results.innerHTML = "";
+        return;
+      }
+
+      message.className = "";
+      message.textContent = "Loading universities...";
+      results.innerHTML = "";
+
+      const url = "http://universities.hipolabs.com/search?country=" + encodeURIComponent(country);
+
+      fetch(url)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data) {
+          if (data.length === 0) {
+            message.textContent = "No universities found for \"" + country + "\". Check the spelling.";
+            return;
+          }
+
+          message.textContent = "Found " + data.length + " universities in " + country + ":";
+
+          data.forEach(function (uni) {
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML =
+              "<h3>" + uni.name + "</h3>" +
+              "<a href='" + uni.web_pages[0] + "' target='_blank'>" + uni.web_pages[0] + "</a>";
+            results.appendChild(card);
+          });
+        })
+        .catch(function (error) {
+          message.className = "error";
+          message.textContent = "Something went wrong. Please check your internet and try again.";
+        });
+    }
+
+    searchBtn.onclick = searchUniversities;
+
+    countryInput.onkeydown = function (event) {
+      if (event.key === "Enter") {
+        searchUniversities();
+      }
+    };
+  </script>
+</body>
+</html>
