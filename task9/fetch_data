@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task 9: Async Programming Demo</title>
+
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      display: flex;
+      justify-content: center;
+      padding: 40px 16px;
+    }
+
+    .box {
+      background: white;
+      width: 100%;
+      max-width: 480px;
+      padding: 24px;
+      border-radius: 10px;
+      border: 1px solid #cfd8e3;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-top: 0;
+      color: #1f3a5f;
+    }
+
+    button {
+      padding: 10px 18px;
+      font-size: 16px;
+      background: #1f3a5f;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2d5287;
+    }
+
+    #output {
+      margin-top: 20px;
+      padding: 14px;
+      min-height: 60px;
+      border-radius: 6px;
+      background: #eef2f7;
+      color: #333;
+    }
+
+    /* Colors for the different states */
+    .loading { background: #fff4d6 !important; }
+    .success { background: #dff5e3 !important; }
+    .error   { background: #fde0e0 !important; }
+  </style>
+</head>
+
+<body>
+  
+  <div class="box">
+    <h1>Simulating Server Data Fetching</h1>
+
+    <button id="successBtn">Fetch Data</button>
+
+    <div id="output">Click the button to fetch data.</div>
+  </div>
+
+    <script>
+    // Get the output box from the page
+    const output = document.getElementById("output");
+
+    // This function pretends to be a server.
+    // It returns a Promise that finishes after 2 seconds.
+    function fetchData(shouldFail) {
+      return new Promise(function (resolve, reject) {
+
+        setTimeout(function () {
+          if (shouldFail) {
+            reject("Error: could not get data from server.");
+          } else {
+            resolve({
+              name: "Rajveer Singh",
+              university: "GLA University",
+              role: "Full Stack Developer",
+              interest: "DSA Enthusiast"
+            });
+          }
+        }, 3000); 
+
+      });
+    }
+
+    
+    function getData(shouldFail) {
+      output.className = "loading";
+      output.innerHTML = "Loading... please wait 2 seconds.";
+
+      
+      fetchData(shouldFail)
+        .then(function (data) {
+          output.className = "success";
+          output.innerHTML =
+            "<b>Data received!</b><br>" +
+            "Name: " + data.name + "<br>" +
+            "University: " + data.university + "<br>" +
+            "Role: " + data.role + "<br>" +
+            "Interest: " + data.interest;
+        })
+        .catch(function (message) {
+          output.className = "error";
+          output.innerHTML = message;
+        });
+    }
+    document.getElementById("successBtn").onclick = function () {
+      getData(false);
+    };
+  </script>
+</body>
+</html>
